@@ -4,7 +4,7 @@
 $host     = 'localhost';
 $user     = 'root';
 $password = '';
-$database = 'db_warung_abc';
+$database = 'warung_abc';
 
 $koneksi = mysqli_connect($host, $user, $password, $database);
 

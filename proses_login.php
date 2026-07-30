@@ -4,7 +4,7 @@ session_start();
 include 'config/koneksi.php';
 
 $username = mysqli_real_escape_string($koneksi, $_POST['username']);
-$password =$_post['password'];
+$password =$_POST['password'];
 
 $sql = "SELECT * FROM tbl_user WHERE username = '$username'";
 $hasil = mysqli_query($koneksi, $sql);
