@@ -28,7 +28,7 @@ $hasil = mysqli_query($koneksi, $sql);
         <td><?php echo $row['tanggal_kadaluarsa']; ?></td>
         <td>
             <a href="edit_barang.php?id=<?php echo $row['id_barang']; ?>">edit</a> |
-            <a href="hapus_barang.php?id=<?php echo $row['id_barang']; ?>">onclick="return confirm('yakin hapus barang ini?');">hapus</a>
+            <a href="hapus_barang.php?id=<?php echo $row['id_barang']; ?>" onclick="return confirm('yakin hapus barang ini?');">hapus</a>
         </td>
     </tr>
     <?php } ?> 

@@ -10,8 +10,8 @@ $stok = $_POST['stok'];
 $exp = $_POST['tanggal_kadaluarsa'];
 $exp_sql = $exp === '' ? 'null' : "'$exp'";
 
-$sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, harga_Satuan, stok, tanggal_kadaluarsa)";
-$sql = "VALUES ('$kode', '$nama', '$stok', $exp_sql)";
+$sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, harga_satuan, stok, tanggal_kadaluarsa)";
+$sql .= "VALUES ('$kode', '$nama', '$harga', '$stok', $exp_sql)";
 
 if (mysqli_query($koneksi, $sql)) {
     $id_user = $_SESSION['id_user'];

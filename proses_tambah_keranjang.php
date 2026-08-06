@@ -22,7 +22,7 @@ if ($barang && $jumlah > 0 && $jumlah <= $barang['stok']) {
         'harga' => $barang['harga_satuan'],
         'jumlah' => $jumlah,
         'subtotal' => $subtotal   
-    )
+    );
 }else{
     $_SESSION['pesan_error'] = 'jumlah melebihi stok atau barang tidak ditemukan!';
 }
