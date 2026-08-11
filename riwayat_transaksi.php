@@ -2,7 +2,7 @@
 include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
-$sql = "SELECT t.no_transaksi, t.total_bayar, u.nama_lengkap AS nama_kasir FROM tbl_transaksi t JOIN tbl_user u ON t.id_kasir = u.id_user ORDER BY t.tanggal DESC";
+$sql = "SELECT t.no_transaksi, t.tanggal, t.total_bayar, u.nama_lengkap AS nama_kasir FROM tbl_transaksi t JOIN tbl_user u ON t.id_kasir = u.id_user ORDER BY t.tanggal DESC";
 $hasil = mysqli_query($koneksi, $sql);
 ?>
 <!DOCTYPE html>

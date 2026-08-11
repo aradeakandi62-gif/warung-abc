@@ -35,6 +35,7 @@ foreach ($_SESSION['keranjang']as $item) {
         <?php } ?>
         </select>
         jumlah: <input type="number" name="jumlah" min="1" required>
+        <input type="submit" value="tambah ke keranjang">
     </form>
 
     <h3>keranjang</h3>
