@@ -7,11 +7,25 @@ if (!isset($_SESSION['keranjang'])) {
     $_SESSION['keranjang'] = array();
 }
 
+$sql_pelanggan = "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC";
+$hasil_pelanggan = mysqli_query($koneksi, $sql_pelanggan);
 $daftar_barang = mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE stok > 0");
 $total = 0;
 foreach ($_SESSION['keranjang']as $item) {
 } 
 ?>
+
+    <form action="proses_simpan_transaksi.php" method="POST">
+        pelanggan:
+        <select name="id_pelanggan">
+            <option value="">-- pelanggan umum --</option>
+            <?php while ($p = mysqli_fetch_assoc($hasil_pelanggan)) { ?>
+        <option value="<?php echo $p['id_pelanggan']; ?>"> 
+            <?php echo $p['nama_pelanggan']; ?></option>
+        <?php } ?>
+        </select>
+        <input type="submit" value="simpan transaksi">
+    </form>
 <!DOCTYPE html>
 <html lang="en">
 <head>
