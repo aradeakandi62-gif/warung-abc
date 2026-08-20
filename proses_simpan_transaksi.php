@@ -1,13 +1,18 @@
 <?php
 // proses_simpan_transaksi.php
 session_start();
-include 'includes/cek_session.php';
+include 'include/cek_session.php';
 include 'config/koneksi.php';
 
-$id_kasir =$_SESSION['id_user'];
+$id_kasir = $_SESSION['id_user'];
 
-$id_pelanggan = !empty($_POST['id_pelanggan']) ? (int) $_POST['id_pelanggan'] : null;
-$id_pelanggan_sql = $id_pelanggan === null ? 'NULL' : "'$id_pelanggan'";
+$id_pelanggan = $_POST['id_pelanggan'] ?? '';
+
+if (empty($id_pelanggan)) {
+    $_SESSION['pesan_error'] = 'Pelanggan belum dipilih!';
+    header('location: transaksi.php');
+    exit;
+}
 
 $no_transaksi = 'TRX-' . date('YmdHis');
 $tanggal = date('Y-m-d H:i:s');
@@ -18,7 +23,7 @@ foreach ($_SESSION['keranjang'] as $item) {
 }
 
 $sql = "INSERT INTO tbl_transaksi (no_transaksi, tanggal, id_kasir, id_pelanggan, total_bayar)";
-$sql .= " VALUES ('$no_transaksi', '$tanggal', '$id_kasir', $id_pelanggan_sql, '$total')";
+$sql .= " VALUES ('$no_transaksi', '$tanggal', '$id_kasir', $id_pelanggan $sql, '$total')";
 
 mysqli_query($koneksi, $sql);
 $id_transaksi = mysqli_insert_id($koneksi);

@@ -1,6 +1,6 @@
 <?php
 // data_pelanggan.php
-include 'includes/cek_session.php';
+include 'include/cek_session.php';
 include 'config/koneksi.php';
 
 $sql = "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC";

@@ -20,6 +20,7 @@
                 <td><input type="date" name="tanggal_kadaluarsa" required</td></tr>
             <tr><td colspan="3"><input type="submit" value="simpan"></td></tr>
         </table>
-    </form>        
+    </form>
+    <p><a href="data_pelanggan.php">kembali</a></p>        
 </body>
 </html>

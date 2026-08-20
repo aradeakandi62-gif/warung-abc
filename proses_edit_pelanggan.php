@@ -5,7 +5,7 @@ include 'config/koneksi.php';
 
 $id = $_POST['id_pelanggan'];
 $nama = mysqli_real_escape_string($koneksi, $_POST['nama_pelanggan']);
-$hp = mysqli_real_escape_string($koneksi $_POST['no_hp']);
+$hp = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
 $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
 
 $sql = "UPDATE tbl_pelanggan SET nama_pelanggan='$nama', no_hp='$hp', ";
